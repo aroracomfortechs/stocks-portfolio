@@ -35,7 +35,7 @@ const Pie = props => {
         .attr("fill", (d, i) => props.data[i]['color']);
     },
     [props.data]
-  );
+  );// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <svg width={props.width} height={props.height}>
