@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import ListItem from './components/ListItem';
+import Chart from './components/chart';
+import './App.scss';
 
 function App() {
+  const data = useSelector(state => state.assignment.data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-lg-9 col-md-12">
+          {data.map((el, index) => (
+            <ListItem key={index} data={el} />
+          ))}
+        </div>
+        <div className="col-lg-3 col-md-12 my-2">
+          <Chart data={data} />
+        </div>
+      </div>
     </div>
   );
 }
