@@ -16,7 +16,10 @@ function ListItem(props) {
             <div className="col-lg-3 col-md-12 p-2">
                 <div className="chip row mx-0">
                     <div className="col">
-                        <span className="gray_font font_lg"><strong>$</strong><span className="font_xl cyan_font"><strong>{data.price}</strong></span></span>
+                        <div className='w-100 d-flex flex-wrap justify-content-center text-center'>
+                            {data.scrip}
+                        </div>
+                        <div className="gray_font font_lg w-100 d-flex flex-wrap justify-content-center text-center"><strong>$</strong><span className="font_xl cyan_font"><strong>{data.price}</strong></span></div>
                     </div>
                     <div className="col justify-content-center">
                         <h3>{data.scrip}</h3>
