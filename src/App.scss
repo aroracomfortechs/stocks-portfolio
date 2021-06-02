@@ -51,6 +51,14 @@ body{
     span{
       word-wrap: break-word;
     }
+    .progress_right_left{
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .progress_left_right{
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
     .progress{
       width: 100%;
       padding: 0;

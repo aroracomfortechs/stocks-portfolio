@@ -80,9 +80,16 @@ function ListItem(props) {
                     </div> : <div className="col-6 text-right">
                         {data.return < 0 ? <IoMdArrowDropdown color="#dc3545" /> : null}<span className="font_sm"><strong>{-(data.return)}%</strong></span>
                     </div>}
-                    <div className="col-12">
-                        <ProgressBar variant={data.return < 0 ? "danger" : "success"} now={data.return < 0 ? -(data.return) : data.return} />
-                    </div>
+                    <section className="col-12">
+                        <div className="row">
+                            <div className="col">
+                                <ProgressBar className="justify-content-end progress_right_left" variant={"danger"} now={data.return < 0 ? -(data.return) : 0} />
+                            </div>
+                            <div className="col">
+                                <ProgressBar className="progress_left_right" variant={"success"} now={data.return > 0 ? data.return : 0} />
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
             <div className="col-lg-1 col-md-12 p-2">
