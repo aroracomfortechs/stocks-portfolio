@@ -12,30 +12,27 @@ const Pie = props => {
     .innerRadius(props.innerRadius)
     .outerRadius(props.outerRadius);
 
-  useEffect(
-    () => {
-      const data = createPie(props.data);
-      const group = d3.select(ref.current);
-      const groupWithData = group.selectAll("g.arc").data(data);
+  useEffect(() => {
+    const data = createPie(props.data);
+    const group = d3.select(ref.current);
+    const groupWithData = group.selectAll("g.arc").data(data);
 
-      groupWithData.exit().remove();
+    groupWithData.exit().remove();
 
-      const groupWithUpdate = groupWithData
-        .enter()
-        .append("g")
-        .attr("class", "arc");
+    const groupWithUpdate = groupWithData
+      .enter()
+      .append("g")
+      .attr("class", "arc");
 
-      const path = groupWithUpdate
-        .append("path")
-        .merge(groupWithData.select("path.arc"));
+    const path = groupWithUpdate
+      .append("path")
+      .merge(groupWithData.select("path.arc"));
 
-      path
-        .attr("class", "arc")
-        .attr("d", createArc)
-        .attr("fill", (d, i) => props.data[i]['color']);
-    },
-    [props.data]
-  );// eslint-disable-line react-hooks/exhaustive-deps
+    path
+      .attr("class", "arc")
+      .attr("d", createArc)
+      .attr("fill", (d, i) => props.data[i]['color']);
+  }, [props.data]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <svg width={props.width} height={props.height}>
